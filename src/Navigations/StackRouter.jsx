@@ -2,8 +2,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StyleSheet, StatusBar, Text, View } from 'react-native';
 
 import React from 'react';
-import Screen1 from '../Screens/Screen1';
-import Screen2 from '../Screens/Screen2';
+
 import AnimationPartone from '../Screens/AnimationTest/AnimationPartone';
 import AnimationPartTwo from '../Screens/AnimationTest/AnimationPartTwo';
 import { createSharedElementStackNavigator } from 'react-navigation-shared-element';
@@ -32,8 +31,7 @@ const StackRouter = () => {
 
       headerMode='none'
     >
-      <Stack.Screen name="Screen1" component={Screen1} options={{}} />
-      <Stack.Screen name="Screen2" component={Screen2} options={{}} />
+      
       <Stack.Screen
         name="AnimationPartone"
         component={AnimationPartone}
@@ -42,7 +40,7 @@ const StackRouter = () => {
       <Stack.Screen
         name="AnimationPartTwo"
         component={AnimationPartTwo}
-        options={() => options}
+        options={() => {}}
       />
     </Stack.Navigator>
   );

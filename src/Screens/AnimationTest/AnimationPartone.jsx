@@ -83,10 +83,10 @@ const DATA = [
   },
 ];
 
-const OVERFLOW_HEIGHT = 70;
+const OVERFLOW_HEIGHT = 115;
 const SPACING = 10;
-const ITEM_WIDTH = width * 0.66;
-const ITEM_HEIGHT = ITEM_WIDTH * 1.6;
+const ITEM_WIDTH = width * 0.76;
+const ITEM_HEIGHT = ITEM_WIDTH * 1.7;
 const VISIBLE_ITEMS = 3;
 
 const OverflowItems = ({ data, scrollXAnimated }) => {
@@ -97,22 +97,34 @@ const OverflowItems = ({ data, scrollXAnimated }) => {
   });
   return (
     <View style={styles.overflowContainer}>
-      <Animated.View style={{ transform: [{ translateY }] }}>
+
+
+      <Animated.View style={{ transform: [{ translateY :height * 0.01}] }}>
         {data.map((item, index) => {
           return (
+            <>
+        
+<View style={{marginLeft:10,flexDirection:'row'}}>
+  
+  <SharedElement id={`arrow-left`}>
 
+  <Feather name={"arrow-left"} color={"#000000"} size={20}/>
+  </SharedElement>
+  <Text style={{color:'#000',fontWeight:'bold',fontSize:16 ,marginLeft:10}}>LIST</Text>
+</View>
             <View key={index} style={styles.itemContainer}>
        
-<View>
-  <Feather name={"arrow-left"} color={"#000000"} size={20}/>
-</View>
+    <SharedElement id={`item.${item.id}.title`}>
               <Text style={[styles.title]} numberOfLines={1}>
                 {item.title}
               </Text>
-    
+              </SharedElement>
               <View style={styles.itemContainerRow}>
 
         
+
+          
+          <SharedElement id={`item.${item.id}.location`}>
 
           
                 <Text style={[styles.location]}>
@@ -124,12 +136,18 @@ const OverflowItems = ({ data, scrollXAnimated }) => {
                   />
                   {item.location}
                 </Text>
+                </SharedElement>
+                
+          <SharedElement id={`item.${item.id}.date`}>
+
                 <Text style={[styles.date]}>{item.date}</Text>
+          </SharedElement>
              
               </View>
 
              
             </View>
+            </>
           );
         })}
       </Animated.View>
@@ -224,7 +242,6 @@ const AnimationPartone =(props) => {
               );
             }}
             renderItem={({ item, index }) => {
-              console.log(item,"hhhhhh")
               const inputRange = [index - 1, index, index + 1];
               const translateX = scrollXAnimated.interpolate({
                 inputRange,
@@ -268,7 +285,7 @@ const AnimationPartone =(props) => {
                       width: ITEM_WIDTH,
                       height: ITEM_HEIGHT,
                       borderRadius: 14,
-                      backgroundColor:'red'
+                     
                     }}
                   />
                  </SharedElement>
@@ -311,7 +328,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     padding: SPACING * 2,
-    marginTop: 50,
+    marginTop: 10,
   },
   
   title: {
