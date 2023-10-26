@@ -6,6 +6,7 @@ import React from 'react';
 import AnimationPartone from '../Screens/AnimationTest/AnimationPartone';
 import AnimationPartTwo from '../Screens/AnimationTest/AnimationPartTwo';
 import { createSharedElementStackNavigator } from 'react-navigation-shared-element';
+import VideoRecorder from '../Screens/VideoRecorder/VideoRecorder';
 
 
 const Stack = createSharedElementStackNavigator();
@@ -36,6 +37,12 @@ const StackRouter = () => {
         name="AnimationPartone"
         component={AnimationPartone}
         options={{}}
+      />
+
+      <Stack.Screen
+      name='VideoRecorder'
+      component={VideoRecorder}
+      options={{}}
       />
       <Stack.Screen
         name="AnimationPartTwo"
